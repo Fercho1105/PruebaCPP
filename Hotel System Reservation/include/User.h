@@ -1,16 +1,23 @@
 #ifndef USER_H
 #define USER_H
 
+#include <string>
 
-class User
-{
-    public:
-        User();
-        virtual ~User();
+class User {
+protected:
+    std::string username;
+    std::string password;
 
-    protected:
+public:
+    User(std::string uname, std::string pword);
 
-    private:
+    virtual ~User() {}
+
+    std::string getUsername() const;
+
+    bool authenticate(std::string uname, std::string pword);
+
+    virtual void displayMenu() = 0;
 };
 
 #endif // USER_H
